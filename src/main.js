@@ -4,6 +4,8 @@ import 'izitoast/dist/css/iziToast.min.css';
 import imageAPIRequest from './js/pixabay-api';
 import imageRender from './js/render-functions';
 
+import errorIcon from './img/error-message-icon.svg';
+
 const messageOptions = {
   class: 'message',
   titleColor: '#fff',
@@ -20,7 +22,7 @@ const messageOptions = {
 const errorMessageOptions = {
   ...messageOptions,
   backgroundColor: '#ef4040',
-  image: 'img/error-message-icon.svg',
+  image: errorIcon,
   imageWidth: 24,
   close: true,
 };
