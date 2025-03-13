@@ -20,7 +20,7 @@ const messageOptions = {
 const errorMessageOptions = {
   ...messageOptions,
   backgroundColor: '#ef4040',
-  image: '../img/error-message-icon.svg',
+  image: '/img/error-message-icon.svg',
   imageWidth: 24,
   close: true,
 };
