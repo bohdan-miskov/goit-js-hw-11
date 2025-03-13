@@ -28,16 +28,10 @@ const errorMessageOptions = {
 const refs = {
   searchForm: document.querySelector('.form'),
   gallery: document.querySelector('.gallery'),
-  loader: createEl('span', 'loader'),
+  loader: document.querySelector('.loader'),
 };
 
 refs.searchForm.addEventListener('submit', searchFormSubmit);
-
-function createEl(tag, className) {
-  const el = document.createElement(tag);
-  el.classList.add(className);
-  return el;
-}
 
 function searchFormSubmit(event) {
   event.preventDefault();
@@ -46,7 +40,7 @@ function searchFormSubmit(event) {
     return;
   }
   refs.gallery.innerHTML = '';
-  refs.searchForm.insertAdjacentElement('afterend', refs.loader);
+  refs.loader.style.display = 'block';
 
   imageAPIRequest(searchText)
     .then(imageData => {
@@ -55,14 +49,14 @@ function searchFormSubmit(event) {
           '',
           'Sorry, there are no images matching your search query. Please try again!'
         );
-        refs.loader.remove();
+        refs.loader.style.display = 'none';
         return;
       }
-      refs.loader.remove();
+      refs.loader.style.display = 'none';
       imageRender(imageData.data.hits);
     })
     .catch(error => {
-      refs.loader.remove();
+      refs.loader.style.display = 'none';
       createErrorMessage(
         error.name,
         `Sorry, the following error occured: ${error.message}`
