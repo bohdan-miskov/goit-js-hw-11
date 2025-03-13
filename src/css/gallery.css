@@ -46,6 +46,9 @@
   width: 360px;
   position: relative;
 }
+.gallery-image {
+  width: 100%;
+}
 .gallery-image-description-list {
   position: absolute;
   bottom: 0;
