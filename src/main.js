@@ -44,6 +44,7 @@ function searchFormSubmit(event) {
 
   imageAPIRequest(searchText)
     .then(imageData => {
+      console.log(imageData);
       if (imageData.data.hits.length === 0) {
         createErrorMessage(
           '',
